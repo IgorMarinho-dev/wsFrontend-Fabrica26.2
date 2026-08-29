@@ -18,7 +18,7 @@ function App() {
     return matchesName && matchesRole;
   });
 
-  const { paginatedItems, currentPage, totalPages, nextPage, prevPage, goToPage } =
+  const { paginatedItems, currentPage, totalPages, goToPage } =
     usePagination(filteredHeroes, 12);
 
   if (loading) return <p>Carregando...</p>;
@@ -58,8 +58,6 @@ function App() {
             currentPage={currentPage}
             totalPages={totalPages}
             goToPage={goToPage}
-            nextPage={nextPage}
-            prevPage={prevPage}
           />
         </>
       )}
