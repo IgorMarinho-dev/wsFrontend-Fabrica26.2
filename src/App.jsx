@@ -4,6 +4,7 @@ import { usePagination } from "./hooks/usePagination";
 import HeroCard from "./components/HeroCard";
 import SearchBar from "./components/SearchBar";
 import RoleFilter from "./components/RoleFilter";
+import Pagination from "./components/Pagination";
 
 function App() {
   const { heroes, loading, error } = useHeroes();
@@ -38,33 +39,30 @@ function App() {
       <SearchBar onSearch={handleSearch} />
       <RoleFilter selectedRoles={selectedRoles} onChange={handleRoleChange} />
 
-      <h1 className="text-2xl font-bold text-white mb-4">
-        Página {currentPage} de {totalPages || 1}
-      </h1>
-
       {filteredHeroes.length === 0 ? (
         <p className="text-gray-400">Nenhum herói encontrado.</p>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {paginatedItems.map((hero) => (
-            <HeroCard
-              key={hero.key}
-              name={hero.name}
-              portrait={hero.portrait}
-              role={hero.role}
-            />
-          ))}
-        </div>
-      )}
+        <>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {paginatedItems.map((hero) => (
+              <HeroCard
+                key={hero.key}
+                name={hero.name}
+                portrait={hero.portrait}
+                role={hero.role}
+              />
+            ))}
+          </div>
 
-      <div className="flex gap-4 mt-6">
-        <button onClick={prevPage} className="text-white underline">
-          Anterior
-        </button>
-        <button onClick={nextPage} className="text-white underline">
-          Próximo
-        </button>
-      </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            goToPage={goToPage}
+            nextPage={nextPage}
+            prevPage={prevPage}
+          />
+        </>
+      )}
     </div>
   );
 }
