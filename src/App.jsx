@@ -1,5 +1,6 @@
 import { useHeroes } from "./hooks/useHeroes";
 import { usePagination } from "./hooks/usePagination";
+import HeroCard from "./components/HeroCard";
 
 function App() {
   const { heroes, loading, error } = useHeroes();
@@ -10,17 +11,30 @@ function App() {
   if (error) return <p>Erro: {error}</p>;
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-blue-600">
+    <div className="p-6">
+      <h1 className="text-2xl font-bold text-white mb-4">
         Página {currentPage} de {totalPages}
       </h1>
-      <ul>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {paginatedItems.map((hero) => (
-          <li key={hero.key}>{hero.name}</li>
+          <HeroCard
+            key={hero.key}
+            name={hero.name}
+            portrait={hero.portrait}
+            role={hero.role}
+          />
         ))}
-      </ul>
-      <button onClick={prevPage}>Anterior</button>
-      <button onClick={nextPage}>Próximo</button>
+      </div>
+
+      <div className="flex gap-4 mt-6">
+        <button onClick={prevPage} className="text-white underline">
+          Anterior
+        </button>
+        <button onClick={nextPage} className="text-white underline">
+          Próximo
+        </button>
+      </div>
     </div>
   );
 }
