@@ -11,8 +11,8 @@ function Pagination({ currentPage, totalPages, goToPage }) {
           onClick={() => goToPage(page)}
           className={`px-3 py-1 rounded-lg transition-colors ${
             page === currentPage
-              ? "bg-blue-600 text-white"
-              : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+              ? "bg-ow-accent text-ow-dominant font-semibold"
+              : "bg-ow-secondary text-gray-300 hover:brightness-125"
           }`}
         >
           {page}

@@ -35,7 +35,7 @@ function App() {
   }
 
   return (
-    <div className="p-6">
+    <div className="p-6 min-h-screen bg-ow-dominant">
       <SearchBar onSearch={handleSearch} />
       <RoleFilter selectedRoles={selectedRoles} onChange={handleRoleChange} />
 

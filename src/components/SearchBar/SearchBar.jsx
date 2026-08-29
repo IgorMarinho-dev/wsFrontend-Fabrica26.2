@@ -15,11 +15,11 @@ function SearchBar({ onSearch }) {
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         placeholder="Buscar herói por nome..."
-        className="flex-1 px-4 py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-500"
+        className="flex-1 px-4 py-2 rounded-lg bg-ow-secondary text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-ow-accent"
       />
       <button
         type="submit"
-        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        className="px-4 py-2 bg-ow-accent text-ow-dominant font-semibold rounded-lg hover:brightness-110 transition-all"
       >
         Buscar
       </button>

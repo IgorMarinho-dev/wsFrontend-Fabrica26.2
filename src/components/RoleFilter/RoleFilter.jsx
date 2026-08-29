@@ -20,7 +20,7 @@ function RoleFilter({ selectedRoles, onChange }) {
             type="checkbox"
             checked={selectedRoles.includes(role)}
             onChange={() => toggleRole(role)}
-            className="w-4 h-4 accent-blue-600"
+            className="w-4 h-4 accent-ow-accent"
           />
           {role}
         </label>
